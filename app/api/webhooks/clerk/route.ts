@@ -71,6 +71,11 @@ export async function POST(req: Request) {
       photo: image_url,
     } as const;
 
+    console.log("Creating user Routes", user);
+
+    console.log(`webhook with an ID of ${id} and type of ${eventType}`);
+    console.log("webhook body:", body);
+
     const newUser = await createUser(user);
 
     // Set public metadata
@@ -82,7 +87,10 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json({ message: "OK", user: newUser });
+    return NextResponse.json({
+      message: "New User Created Successfully",
+      user: newUser,
+    });
   }
 
   // UPDATE
