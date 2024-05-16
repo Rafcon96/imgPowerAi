@@ -6,12 +6,12 @@ type Props = {
 };
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <main className="root">
-      <div className="root-container bg-slate-800">
+    <main className="root bg-slate-800 root-container">
+      <div className="">
         <Sidebar />
         <MobileNav />
-        <div className="wrapper">{children}</div>
       </div>
+      <div className="wrapper">{children}</div>
     </main>
   );
 };

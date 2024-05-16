@@ -5,9 +5,11 @@ import { revalidatePath } from "next/cache";
 import User from "../database/models/user.model";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
+import { Types } from "mongoose";
 
 // CREATE
 export async function createUser(user: CreateUserParams) {
+  console.log("Creating user==========>", user);
   try {
     await connectToDatabase();
     console.log("Creating user", user);
@@ -21,10 +23,11 @@ export async function createUser(user: CreateUserParams) {
 
 // READ
 export async function getUserById(userId: string) {
+  console.log("Getting user by id", userId);
   try {
     await connectToDatabase();
-
     const user = await User.findOne({ clerkId: userId });
+    console.log("User", user);
 
     if (!user) throw new Error("User not found");
 

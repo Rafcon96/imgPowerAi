@@ -80,7 +80,7 @@
 }
 
 .root {
-  @apply flex min-h-screen w-full flex-col bg-white lg:flex-row;
+  @apply flex min-h-screen w-full flex-col lg:flex-row bg-white;
 }
 
 .root-container {

@@ -26,7 +26,7 @@ export const connectToDatabase = async () => {
     mongoose.connect(MONGODB_URL, {
       dbName: "imagePowerAi-db",
       bufferCommands: false,
-      connectTimeoutMS: 30000,
+      // connectTimeoutMS: 30000,
     });
 
   cached.conn = await cached.promise;
