@@ -15,12 +15,12 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+  // FormControl,
+  // FormDescription,
+  // FormField,
+  // FormItem,
+  // FormLabel,
+  // FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -151,10 +151,10 @@ const TransformationForm = ({
   }
 
   const onSelectFieldHandler = (
-    value: string,
+    value: AspectRatioKey,
     onChangeField: (value: string) => void
   ) => {
-    const imageSize = aspectRatioOptions[value as AspectRatioKey];
+    const imageSize = aspectRatioOptions[value];
 
     setImage((prevState: any) => ({
       ...prevState,
@@ -228,7 +228,7 @@ const TransformationForm = ({
             render={({ field }) => (
               <Select
                 onValueChange={(value) =>
-                  onSelectFieldHandler(value, field.onChange)
+                  onSelectFieldHandler(value as AspectRatioKey, field.onChange)
                 }
                 value={field.value}
               >

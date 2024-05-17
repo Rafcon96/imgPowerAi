@@ -17,6 +17,10 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
+  if (cached.conn)
+    console.log(
+      `Connected to database: ${cached.conn.connection.db.databaseName}`
+    );
   if (cached.conn) return cached.conn;
 
   if (!MONGODB_URL) throw new Error("Missing MONGODB_URL");
@@ -24,12 +28,15 @@ export const connectToDatabase = async () => {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URL, {
-      dbName: "imagePowerAi-db",
+      dbName: "imgPowerAi",
       bufferCommands: false,
       // connectTimeoutMS: 30000,
     });
 
   cached.conn = await cached.promise;
+  console.log(
+    `Connected to database: ${cached.conn.connection.db.databaseName}`
+  );
 
   return cached.conn;
 };
